@@ -4,6 +4,7 @@ $GLOBALS['config'] = array(
         'name' => 'SupportBotArticles',
         'version' => "1.0",
         'designer' => "junior",
+        "development" => true,
     ),
     'mysql' => array(
         'host' => '127.0.0.1',
