@@ -76,7 +76,37 @@ class DB {
                 }
             }
             $sql = "{$action} FROM {$table} WHERE ".$wherestr. " ORDER BY id DESC";
-            //print_r($sql);
+            if(!$this->query($sql,$value)->error()) {
+                return $this;
+            }
+        }
+
+        return false;
+    }
+
+    //prototype method for mysql actions
+    public  function actionOR($action, $table, $where = array(), $limit="") {
+        $operators = array('=', '>', '<', '>=', '<=', '<>', '<=>', '!=', 'LIKE');
+        if(count($where) % 3 == 0) {
+            $z = count($where) / 3;
+            $wherestr = "";
+            $value = array();
+            $operator = array();
+            for($x = 0,$y= 1; $y <= $z; $y++, $x += 3) {
+                $whr = array_slice($where, $x, 3);
+                $wherestr .= "{$whr[0]} {$whr[1]} ?";
+                if($z - $y >= 1) {
+                    $wherestr .= " OR ";
+                }
+                $operator[] = $whr[1];
+                $value[] = $whr[2];
+            }
+            foreach ($operator as $key => $valueop) {
+                if(!in_array($valueop, $operators)) {
+                    return false;
+                }
+            }
+            $sql = "{$action} FROM {$table} WHERE ".$wherestr. " ORDER BY id DESC";
             if(!$this->query($sql,$value)->error()) {
                 return $this;
             }
@@ -87,6 +117,10 @@ class DB {
 
     public function get($table, $where, $fields = '*') {
         return $this->action("SELECT {$fields}", $table, $where);
+    }
+
+    public function getOR($table, $where, $fields = '*') {
+        return $this->actionOR("SELECT {$fields}", $table, $where);
     }
 
     public function delete($table, $where) {

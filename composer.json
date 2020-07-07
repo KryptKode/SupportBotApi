@@ -2,6 +2,7 @@
     "require": {
         "slim/slim": "3.0",
         "ext-json": "*",
-        "ext-pdo": "*"
+        "ext-pdo": "*",
+        "donatello-za/rake-php-plus": "^1.0"
     }
 }

@@ -34,6 +34,64 @@
         "abandoned": "psr/container"
     },
     {
+        "name": "donatello-za/rake-php-plus",
+        "version": "v1.0.15",
+        "version_normalized": "1.0.15.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/Donatello-za/rake-php-plus.git",
+            "reference": "c99dd38c79399b9bf783a740087390191eab3801"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/Donatello-za/rake-php-plus/zipball/c99dd38c79399b9bf783a740087390191eab3801",
+            "reference": "c99dd38c79399b9bf783a740087390191eab3801",
+            "shasum": ""
+        },
+        "require": {
+            "ext-json": "*",
+            "ext-mbstring": "*",
+            "php": ">=5.4.0"
+        },
+        "require-dev": {
+            "php": ">=5.5.0",
+            "phpunit/phpunit": "~4.0|~5.0"
+        },
+        "time": "2020-06-23T08:54:00+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.0.13-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "DonatelloZa\\RakePlus\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Don Schoeman",
+                "email": "ta.maximus@gmail.com"
+            }
+        ],
+        "description": "Yet another PHP implementation of the Rapid Automatic Keyword Extraction algorithm (RAKE).",
+        "homepage": "https://github.com/Donatello-za/rake-php-plus",
+        "keywords": [
+            "Algorithm",
+            "automatic",
+            "extraction",
+            "keyword",
+            "rake",
+            "rapid"
+        ]
+    },
+    {
         "name": "nikic/fast-route",
         "version": "v0.6.0",
         "version_normalized": "0.6.0.0",

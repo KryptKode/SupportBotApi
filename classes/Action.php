@@ -9,6 +9,14 @@ class Action {
         return $data->results();
     }
 
+    //method to get data from non static classes like drivers etc
+    public function getOR($where =  array('1', '=', '1'), $fields = '*') {
+        if(!$data = DB::getInstance()->getOR($this->_table, $where, $fields)) {
+            throw new Exception("There was a problem getting data");
+        }
+        return $data->results();
+    }
+
     //method to create record in non static classes like drivers etc
     public function create($fields = array()) {
         if(!DB::getInstance()->insert($this->_table, $fields)) {

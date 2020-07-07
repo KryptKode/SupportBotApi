@@ -28,6 +28,10 @@ class ComposerStaticInit9217fb67e9c1834537c2f72bf8455384
         array (
             'FastRoute\\' => 10,
         ),
+        'D' => 
+        array (
+            'DonatelloZa\\RakePlus\\' => 21,
+        ),
     );
 
     public static $prefixDirsPsr4 = array (
@@ -50,6 +54,10 @@ class ComposerStaticInit9217fb67e9c1834537c2f72bf8455384
         'FastRoute\\' => 
         array (
             0 => __DIR__ . '/..' . '/nikic/fast-route/src',
+        ),
+        'DonatelloZa\\RakePlus\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/donatello-za/rake-php-plus/src',
         ),
     );
 
