@@ -8,10 +8,12 @@ require './init.php';
 $configuration = [
     'settings' => [
         'displayErrorDetails' => true,
+        "determineRouteBeforeAppMiddleware" => true,
     ],
 ];
 $app = new \Slim\App($configuration);
 
+require_once './functions/cors.php';
 require_once './routes/articles.php';
 require_once './routes/botstats.php';
 

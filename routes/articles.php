@@ -16,7 +16,7 @@ $app->get('/articles', function(Request $request, Response $response) {
 });
 
 $app->get('/keywords', function(Request $request, Response $response) {
-    try {
+     try {
         $article = new Article();
 
         $articles = $article->getAllKeyWords();
@@ -38,7 +38,7 @@ $app->post('/articles', function(Request $request, Response $response) {
             $data = $article->getArticles($userKeywords);
             shuffle($data);
             $data = array_slice($data, 0, 3);
-            return $response->withJson($data, 200);
+            return $response->withJson($data, 200)->withAddedHeader("Access-Control-Allow-Origin", "*");
         }else{
             $result = ["success"=>false, "message"=>"Description is required"];
             return $response->withJson($result, 400);
@@ -49,7 +49,7 @@ $app->post('/articles', function(Request $request, Response $response) {
     }
 });
 
-$app->put('/articles/helped', function(Request $request, Response $response) {
+$app->post('/articles/helped', function(Request $request, Response $response) {
     try {
         $queryParams = $request->getQueryParams();
         if(array_key_exists('id', $queryParams)){

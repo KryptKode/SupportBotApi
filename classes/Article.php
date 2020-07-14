@@ -40,5 +40,19 @@ class Article extends Action
         return $articles;
     }
 
+    public function getAllKeyWords()
+    {
+        $allKeywords = $this->get(array('1', '=', '1'), 'keywords');
+        $words = array();
+        foreach ($allKeywords as $key => $value) {
+            $keywords = $value->keywords;
+            $separated = explode(",", $keywords);
+            foreach ($separated as $k => $v) {
+                array_push($words, $v);
+            }
+        }
+        return array_map("unserialize", array_unique(array_map("serialize", $words)));
+    }
+
 
 }

@@ -18,7 +18,7 @@ $app->get('/stats', function (Request $request, Response $response) {
     }
 });
 
-$app->put('/stats/botContacted', function (Request $request, Response $response) {
+$app->post('/stats/botContacted', function (Request $request, Response $response) {
     try {
         $botStats = new BotStats();
         $data = $botStats->incrementContacted();
@@ -33,7 +33,7 @@ $app->put('/stats/botContacted', function (Request $request, Response $response)
     }
 });
 
-$app->put('/stats/botChatStarted', function (Request $request, Response $response) {
+$app->post('/stats/botChatStarted', function (Request $request, Response $response) {
     try {
         $botStats = new BotStats();
         $data = $botStats->incrementChatStarted();
@@ -48,7 +48,7 @@ $app->put('/stats/botChatStarted', function (Request $request, Response $respons
     }
 });
 
-$app->put('/stats/botChatInterrupted', function (Request $request, Response $response) {
+$app->post('/stats/botChatInterrupted', function (Request $request, Response $response) {
     try {
         $botStats = new BotStats();
         $data = $botStats->incrementChatInterrupted();
@@ -63,7 +63,7 @@ $app->put('/stats/botChatInterrupted', function (Request $request, Response $res
     }
 });
 
-$app->put('/stats/botSupportTickets', function (Request $request, Response $response) {
+$app->post('/stats/botSupportTickets', function (Request $request, Response $response) {
     try {
         $botStats = new BotStats();
         $data = $botStats->incrementSupportTickets();
